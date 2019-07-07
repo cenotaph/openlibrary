@@ -14,7 +14,7 @@ module Openlibrary
     HANDLE_REST_CLIENT_RESPONSE = lambda do |response, request, result, &block|
       case response.code
       when 200
-        response.return!(request, result, &block)
+        response.return! #(request, result, &block)
       when 401
         raise Openlibrary::Unauthorized
       when 404
@@ -90,7 +90,7 @@ module Openlibrary
       params.merge!(content_type: :json, accept: :json)
       update_url = "#{API_URL}#{key}"
 
-      response = RestClient.put(update_url, update, params, &HANDLE_REST_CLIENT_RESPONSE)
+      response = RestClient.put(update_url, update, params,  &HANDLE_REST_CLIENT_RESPONSE )
       parse(response)
     end
 
@@ -101,7 +101,9 @@ module Openlibrary
 
     def perform_get_request(url, params)
       params.merge!(accept: :json)
-      response = RestClient.get(url, params, &HANDLE_REST_CLIENT_RESPONSE)
+      puts url
+      puts params
+      response = RestClient.get(url, params, &HANDLE_REST_CLIENT_RESPONSE )
       parse(response)
     end
     private :perform_get_request
