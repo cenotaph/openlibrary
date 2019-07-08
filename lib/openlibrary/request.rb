@@ -101,8 +101,6 @@ module Openlibrary
 
     def perform_get_request(url, params)
       params.merge!(accept: :json)
-      puts url
-      puts params
       response = RestClient.get(url, params, &HANDLE_REST_CLIENT_RESPONSE )
       parse(response)
     end
