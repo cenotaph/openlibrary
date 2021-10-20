@@ -25,5 +25,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'rest-client', '~> 2.0.2'
   s.add_runtime_dependency 'hashie', '~> 2.0.5'
 
-  s.add_runtime_dependency 'activesupport', '~> 6'
+  s.add_runtime_dependency 'activesupport', '>= 5'
 end
