@@ -3,7 +3,7 @@ module Openlibrary
     # Find books in Open Library by OLID, ISBN, LCCN, or OCLC
     #
     def book(olid)
-      data = request("/books/#{olid}")
+      data = request("/books/#{olid}.json")
       Hashie::Mash.new(data)
     end
 
