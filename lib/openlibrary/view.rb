@@ -27,7 +27,7 @@ module Openlibrary
       type_for_uri = URI.encode_www_form_component(type)
       key_for_uri = URI.encode_www_form_component(key)
 
-      response = RestClient.get "http://openlibrary.org/api/books" +
+      response = RestClient.get "http://openlibrary.org/api/books.json" +
         "?bibkeys=#{type_for_uri}:#{key_for_uri}&format=json&jscmd=viewapi"
       response_data = JSON.parse(response)
       view = response_data["#{type}:#{key}"]
